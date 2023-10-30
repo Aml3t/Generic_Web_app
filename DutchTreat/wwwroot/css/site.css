@@ -31,3 +31,10 @@ label {
     ul.product-props li{
     list-style:none;
 }
+
+.product-info{
+    border:1px solid grey;
+    display:inline-block;
+    padding:8px 3px;
+    margin: 2px;
+}
