@@ -14,3 +14,12 @@ input[type=submit]{
 label {
     font-size: 16px;
 }
+
+#theForm {
+    background-color:#d0d0d0;
+}
+
+#theForm input[type=submit] {
+    color:white;
+    background-color:orangered;
+}
