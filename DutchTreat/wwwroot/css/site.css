@@ -25,7 +25,7 @@ label {
 }
 
 .product-props {
-    font-size: 12px;
+    font-size: small;
 }
 
     ul.product-props li{
@@ -37,4 +37,14 @@ label {
     display:inline-block;
     padding:8px 3px;
     margin: 2px;
+    width: 450px;
+    background-color: lightgray;
+    border-radius: 5px;
+}
+
+.product-info img{
+    margin: 3px;
+    float: left;
+    border: 2px solid black;
+    max-width: 150px;
 }
