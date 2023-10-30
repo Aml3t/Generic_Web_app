@@ -23,3 +23,11 @@ label {
     color:white;
     background-color:orangered;
 }
+
+.product-props {
+    font-size: 12px;
+}
+
+    ul.product-props li{
+    list-style:none;
+}
