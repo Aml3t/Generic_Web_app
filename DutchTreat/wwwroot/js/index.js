@@ -1,15 +1,17 @@
 var x = 0;
 var s = "";
 
-alert("Hello User");
+console.log("Hello User");
 
-var theForm = document.getElementById("theForm");
-theForm.hidden = true;
+var theForm = $("#theForm");
+theForm.hide();
 
-var buyButton = document.getElementById("buyButton");
-buyButton.addEventListener("click", function () {
+var buyButton = $("#buyButton");
+buyButton.on("click", function () {
     console.alert("Buying Item");
 })
 
-var productInfo = document.getElementsByClassName("product-props");
-var listItems = productInfo.item[0].children;
+var productInfo = $(".product-props li");
+productInfo.on("click", function () {
+    console.log("You clicked on " + $(this).text());
+});
