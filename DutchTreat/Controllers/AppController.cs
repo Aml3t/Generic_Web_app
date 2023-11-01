@@ -7,7 +7,7 @@ namespace DutchTreat.Controllers
     {
         public IActionResult Index()
         {
-            throw new InvalidProgramException("U Mirin Bruh?");
+            //throw new InvalidProgramException("U Mirin Bruh?");
             return View();
         }
     }
