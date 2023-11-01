@@ -48,3 +48,22 @@ label {
     border: 2px solid black;
     max-width: 150px;
 }
+
+#loginToggle{
+    cursor:pointer;
+}
+
+.popup-form{
+    padding:5px;
+    border:2px black inset;
+    display: inline-block;
+}
+
+    .popup-form input{
+        width:200px;
+
+    }
+    .popup-form label {
+        width: 150px;
+        display:inline-block;
+    }
