@@ -1,17 +1,20 @@
-var x = 0;
-var s = "";
+$(document).ready(function () {
 
-console.log("Hello User");
+    var x = 0;
+    var s = "";
 
-var theForm = $("#theForm");
-theForm.hide();
+    console.log("Hello User");
 
-var buyButton = $("#buyButton");
-buyButton.on("click", function () {
-    console.alert("Buying Item");
-})
+    var theForm = $("#theForm");
+    theForm.hide();
 
-var productInfo = $(".product-props li");
-productInfo.on("click", function () {
-    console.log("You clicked on " + $(this).text());
+    var buyButton = $("#buyButton");
+    buyButton.on("click", function () {
+        console.alert("Buying Item");
+    })
+
+    var productInfo = $(".product-props li");
+    productInfo.on("click", function () {
+        console.log("You clicked on " + $(this).text());
+    });
 });
