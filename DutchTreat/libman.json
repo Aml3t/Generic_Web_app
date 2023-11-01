@@ -1,8 +1,9 @@
 {
   "version": "1.0",
-  "defaultProvider": "unpkg",
+  "defaultProvider": "cdnjs",
   "libraries": [
     {
+      "provider": "unpkg",
       "library": "jquery@3.5.1",
       "destination": "wwwroot/lib/jquery/",
       "files": [
