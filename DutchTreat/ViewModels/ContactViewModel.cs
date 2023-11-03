@@ -16,7 +16,7 @@ namespace DutchTreat.ViewModels
         public string Subject { get; set; }
 
         [Required]
-        [MaxLength(250)]
+        [MaxLength(250, ErrorMessage ="Long message")]
         public string Message { get; set; }
     }
 }

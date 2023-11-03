@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+	<MaxCpuCount>0</MaxCpuCount>
   </PropertyGroup>
 
   <ItemGroup>
