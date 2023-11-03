@@ -4,7 +4,7 @@ using System;
 
 namespace DutchTreat.Controllers
 {
-    public class AppController :Controller
+    public class AppController : Controller
     {
         public IActionResult Index()
         {
@@ -25,11 +25,9 @@ namespace DutchTreat.Controllers
             if (ModelState.IsValid)
             {
                 // Send the email
+                _mailService.SendMail("test@test.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
             }
-            else
-            {
-                // Show Errors
-            }
+
             return View();
         }
 
