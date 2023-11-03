@@ -149,6 +149,15 @@
         "dist/jquery.validate.js",
         "dist/jquery.validate.min.js"
       ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "jquery-validation-unobtrusive@3.2.12",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive/",
+      "files": [
+        "dist/jquery.validate.unobtrusive.js",
+        "dist/jquery.validate.unobtrusive.min.js"
+      ]
     }
   ]
 }
