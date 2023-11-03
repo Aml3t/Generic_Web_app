@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 
+
+
 namespace DutchTreat.Services
 {
-    public class NullMailService
+    public class NullMailService : IMailService
     {
         private readonly ILogger<NullMailService> _logger;
 
