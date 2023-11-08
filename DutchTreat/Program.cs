@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -28,6 +29,10 @@ namespace DutchTreat
                             IConfigurationBuilder builder)
         {
             builder.Sources.Clear();
+
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+                   .AddJsonFile("config.json")
+                   .AddEnvironmentVariables();
         }
     }
 }
