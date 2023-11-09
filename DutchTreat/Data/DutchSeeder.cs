@@ -39,10 +39,16 @@ namespace DutchTreat.Data
                     OrderNumber = "10000",
                     Items = new List<OrderItem>()
                     {
-
+                        new OrderItem()
+                        {
+                            Product = products.First(),
+                            Quantity = 5,
+                            UnitPrice = products.First().Price
+                        }
                     }
-
                 };
+
+                _context.Add(order);
 
                 _context.SaveChanges();
 
