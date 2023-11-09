@@ -26,7 +26,9 @@ namespace DutchTreat.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Product>().Property(p => p.Title).HasMaxLength(50);
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Title)
+                .HasMaxLength(50);
         }
 
     }
