@@ -1,5 +1,6 @@
 ﻿using DutchTreat.Data.Entities;
 using Microsoft.AspNetCore.Hosting;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -29,6 +30,21 @@ namespace DutchTreat.Data
                 var filePath = Path.Combine(_env.ContentRootPath, "Data/art.json");
                 var json = File.ReadAllText(filePath);
                 var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
+
+                _context.Products.AddRange(products);
+
+                var order = new Order()
+                {
+                    OrderDate = DateTime.Today,
+                    OrderNumber = "10000",
+                    Items = new List<OrderItem>()
+                    {
+
+                    }
+
+                };
+
+                _context.SaveChanges();
 
             }
         }
