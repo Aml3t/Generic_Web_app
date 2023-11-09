@@ -22,5 +22,12 @@ namespace DutchTreat.Data
             optionsBuilder.UseSqlServer(_config["ConnectionStrings:DutchContextDb"]);
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Product>().Property(p => p.Title).HasMaxLength(50);
+        }
+
     }
 }
