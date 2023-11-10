@@ -1,4 +1,5 @@
 ﻿using DutchTreat.Data.Entities;
+using Microsoft.CodeAnalysis;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,11 @@ namespace DutchTreat.Data
             return _context.Products
                 .Where(p => p.Category == category)
                 .ToList();
+        }
+
+        public bool SaveAll()
+        {
+           return _context.SaveChanges() > 0;
         }
 
         //public IEnumerable<Order> GetAllOrders()
