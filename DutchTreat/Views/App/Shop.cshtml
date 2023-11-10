@@ -8,13 +8,13 @@
     @foreach (var p in Model)
     {
         <div class="col-md-3">
-            <img src="~/img/VanGogh.jpg" />
+            <img src="~/img/@(p.ArtId).jpg" class="img-fluid" />
             <h3>@p.Category - @p.Size</h3>
             <ul>
-                <li>@p.Price: 9.99$</li>
-                <li>@p.Artist: Van Gogh</li>
-                <li>@p.Title: </li>
-                <li>@p.ArtDescription: Self-portrait</li>
+                <li>Price: $@p.Price</li>
+                <li>Artist: @p.Artist</li>
+                <li>Title: @p.Title</li>
+                <li>Description: @p.ArtDescription</li>
             </ul>
             <button id="buyButton" class="btn btn-success">Buy</button>
         </div>
