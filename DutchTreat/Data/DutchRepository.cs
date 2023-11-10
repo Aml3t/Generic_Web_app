@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace DutchTreat.Data
 {
-    public class DutchRepository
+    public class DutchRepository : IDutchRepository
     {
         private readonly DutchContext _context;
 
@@ -28,11 +28,11 @@ namespace DutchTreat.Data
                 .ToList();
         }
 
-        public IEnumerable<Order> GetAllOrders()
-        {
-            return _context.Orders
-                .OrderBy(p => p.OrderDate)
-                .ToList();
-        }
+        //public IEnumerable<Order> GetAllOrders()
+        //{
+        //    return _context.Orders
+        //        .OrderBy(p => p.OrderDate)
+        //        .ToList();
+        //}
     }
 }
