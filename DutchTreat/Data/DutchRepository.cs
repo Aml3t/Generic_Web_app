@@ -1,6 +1,7 @@
 ﻿using DutchTreat.Data.Entities;
 using Microsoft.CodeAnalysis;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,19 @@ namespace DutchTreat.Data
 
         public IEnumerable<Product> GetAllProducts()
         {
-            _logger.LogInformation("GetAllProducts was called");
-            return _context.Products
-                .OrderBy(p => p.Title)
-                .ToList();
+            try
+            {
+                _logger.LogInformation("GetAllProducts was called");
+                return _context.Products
+                    .OrderBy(p => p.Title)
+                    .ToList();
+
+            }
+            catch (Exception ex)
+            {
+                _logger.LogInformation($"Failed to get all products: {ex}");
+                return null;
+            }
         }
 
         public IEnumerable<Product> GetProductsByCategory(string category)
@@ -36,7 +46,7 @@ namespace DutchTreat.Data
 
         public bool SaveAll()
         {
-           return _context.SaveChanges() > 0;
+            return _context.SaveChanges() > 0;
         }
 
         //public IEnumerable<Order> GetAllOrders()
