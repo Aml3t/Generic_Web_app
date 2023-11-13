@@ -22,7 +22,7 @@ namespace DutchTreat.Controllers
         {
             try
             {
-                return _repository.GetAllProducts();
+                return Ok(_repository.GetAllOrders());
             }
             catch (Exception ex)
             {

@@ -20,6 +20,13 @@ namespace DutchTreat.Data
             _logger = logger;
         }
 
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return _context.Orders
+                .OrderBy(p => p.OrderDate)
+                .ToList();
+        }
+
         public IEnumerable<Product> GetAllProducts()
         {
             try
@@ -48,12 +55,5 @@ namespace DutchTreat.Data
         {
             return _context.SaveChanges() > 0;
         }
-
-        //public IEnumerable<Order> GetAllOrders()
-        //{
-        //    return _context.Orders
-        //        .OrderBy(p => p.OrderDate)
-        //        .ToList();
-        //}
     }
 }
