@@ -11,7 +11,7 @@ namespace DutchTreat.Controllers
         private readonly IDutchRepository _repository;
         private readonly ILogger _logger;
 
-        public OrdersController(IDutchRepository repository, ILogger logger)
+        public OrdersController(IDutchRepository repository, ILogger<OrdersController> logger)
         {
             _repository = repository;
             _logger = logger;

@@ -22,9 +22,7 @@ namespace DutchTreat.Data
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return _context.Orders
-                .OrderBy(p => p.OrderDate)
-                .ToList();
+            return _context.Orders.ToList();
         }
 
         public IEnumerable<Product> GetAllProducts()
