@@ -28,7 +28,8 @@ namespace DutchTreat
             services.AddTransient<IMailService, NullMailService>();
 
             services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation();
+                .AddRazorRuntimeCompilation()
+                .AddNewtonsoftJson(cfg => );
 
             services.AddRazorPages();
         }
