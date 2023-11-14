@@ -31,17 +31,18 @@ namespace DutchTreat.Controllers
             }
         }
 
-        [HttpGet]
+        [HttpGet("id:int")]
         public IActionResult Get(int id)
         {
             try
             {
-                return Ok(_repository.GetOrderById)
+                return Ok(_repository.GetOrderById(id));
             }
             catch (Exception ex)
             {
 
-                throw;
+                _logger.LogError($"Failed to get order with ID: {id} {ex}");
+                return BadRequest("Failed to get order with ID");
             }
         }
     }
