@@ -23,7 +23,10 @@ namespace DutchTreat.Data
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return _context.Orders.Include(o => o.Items).ToList();
+            return _context.Orders.Include
+                (o => o.Items)
+                .ThenInclude(i => i.Product)
+                .ToList();
         }
 
         public IEnumerable<Product> GetAllProducts()

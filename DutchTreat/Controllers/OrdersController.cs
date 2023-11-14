@@ -30,5 +30,19 @@ namespace DutchTreat.Controllers
                 return BadRequest("Failed to get orders");
             }
         }
+
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
+            try
+            {
+                return Ok(_repository.GetOrderById)
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
     }
 }
