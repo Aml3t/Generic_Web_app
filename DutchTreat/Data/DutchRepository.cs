@@ -1,5 +1,6 @@
 ﻿using DutchTreat.Data.Entities;
 using Microsoft.CodeAnalysis;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
@@ -22,7 +23,7 @@ namespace DutchTreat.Data
 
         public IEnumerable<Order> GetAllOrders()
         {
-            return _context.Orders.ToList();
+            return _context.Orders.Include(o => o.Items).ToList();
         }
 
         public IEnumerable<Product> GetAllProducts()
