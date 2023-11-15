@@ -62,13 +62,20 @@ namespace DutchTreat.Controllers
             try
             {
                 _repository.AddEntity(model);
-                _repository.SaveAll();
+
+                if (_repository.SaveAll())
+                {
+                    return Created($"/api/orders/{model.Id}", model);
+                }
+
             }
             catch (Exception ex)
             {
 
                 _logger.LogError($"Failed to save a new order: {ex}");
             }
+
+            return BadRequest("Failed to save new order");
         }
     }
 }

@@ -23,7 +23,7 @@ namespace DutchTreat.Data
 
         public void AddEntity(object model)
         {
-            throw new NotImplementedException();
+            _context.Add(model);
         }
 
         public IEnumerable<Order> GetAllOrders()
