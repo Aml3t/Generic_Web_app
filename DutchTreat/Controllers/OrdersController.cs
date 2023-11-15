@@ -36,7 +36,15 @@ namespace DutchTreat.Controllers
         {
             try
             {
-                return Ok(_repository.GetOrderById(id));
+                var order = _repository.GetOrderById(id);
+                if (order is not null)
+                {
+                    return Ok();
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
             catch (Exception ex)
             {
