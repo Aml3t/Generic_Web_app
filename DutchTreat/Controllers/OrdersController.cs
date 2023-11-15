@@ -82,9 +82,12 @@ namespace DutchTreat.Controllers
                     {
                         var vm = new OrderViewModel()
                         {
+                            OrderId = newOrder.Id,
+                            OrderDate = newOrder.OrderDate,
+                            OrderNumber = newOrder.OrderNumber
+                        };
 
-                        }
-                        return Created($"/api/orders/{model.OrderId}", model);
+                        return Created($"/api/orders/{vm.OrderId}", vm);
                     }
                 }
                 else
