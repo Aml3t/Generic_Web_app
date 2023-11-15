@@ -21,6 +21,11 @@ namespace DutchTreat.Data
             _logger = logger;
         }
 
+        public void AddEntity(object model)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Order> GetAllOrders()
         {
             return _context.Orders.Include
