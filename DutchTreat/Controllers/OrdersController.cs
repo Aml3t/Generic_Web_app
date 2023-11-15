@@ -31,15 +31,16 @@ namespace DutchTreat.Controllers
             }
         }
 
-        [HttpGet("id:int")]
+        [HttpGet("{id:int}")]
         public IActionResult Get(int id)
         {
             try
             {
                 var order = _repository.GetOrderById(id);
-                if (order is not null)
+                
+                if (order != null)
                 {
-                    return Ok();
+                    return Ok(order);
                 }
                 else
                 {
