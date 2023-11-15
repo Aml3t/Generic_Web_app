@@ -54,5 +54,11 @@ namespace DutchTreat.Controllers
                 return BadRequest("Failed to get order with ID");
             }
         }
+
+        [HttpPost]
+        public IActionResult Post()
+        {
+
+        }
     }
 }
