@@ -9,8 +9,9 @@ namespace DutchTreat.Data
         public DutchMappingProfile()
         {
             //Mapping properties from one object to another one.
-            CreateMap<Order, OrderViewModel>()             
-                .ForMember(o => o.OrderId, ex => ex.MapFrom(o => o.Id));
+            CreateMap<Order, OrderViewModel>()
+                .ForMember(o => o.OrderId, ex => ex.MapFrom(o => o.Id))
+                .ReverseMap();
         }
     }
 }
