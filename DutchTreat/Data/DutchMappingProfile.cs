@@ -1,6 +1,16 @@
-﻿namespace DutchTreat.Data
+﻿using AutoMapper;
+using DutchTreat.Data.Entities;
+using DutchTreat.ViewModels;
+
+namespace DutchTreat.Data
 {
-    public class DutchMappingProfile
+    public class DutchMappingProfile : Profile
     {
+        public DutchMappingProfile()
+        {
+            //Mapping properties from one object to another one.
+            CreateMap<Order, OrderViewModel>()             
+                .ForMember(o => o.OrderId, ex => ex.MapFrom(o => o.Id));
+        }
     }
 }

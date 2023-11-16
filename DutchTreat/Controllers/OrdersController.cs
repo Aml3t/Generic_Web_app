@@ -5,6 +5,8 @@ using DutchTreat.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace DutchTreat.Controllers
 {
@@ -29,7 +31,8 @@ namespace DutchTreat.Controllers
         {
             try
             {
-                return Ok(_repository.GetAllOrders());
+                var result = _repository.GetAllOrders();
+                return Ok(_mapper.Map<IEnumerable<OrderViewModel>>(result)); // Returning a list of OrderViewModels from Order.
             }
             catch (Exception ex)
             {
