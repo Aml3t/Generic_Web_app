@@ -39,7 +39,7 @@ namespace DutchTreat.Controllers
             }
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult Get(int orderId, int id)
         {
             var order = _repository.GetOrderById(orderId);
@@ -53,7 +53,6 @@ namespace DutchTreat.Controllers
                 }
 
             }
-
             return NotFound();
         }
     }
