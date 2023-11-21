@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using DutchTreat.Data;
+using DutchTreat.Data.Entities;
+using DutchTreat.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace DutchTreat.Controllers
 {
@@ -20,5 +23,26 @@ namespace DutchTreat.Controllers
             _logger = logger;
             _mapper = mapper;
         }
+
+        [HttpGet]
+        public IActionResult Get(int orderId)
+        {
+            var order = _repository.GetOrderById(orderId);
+            if (order != null)
+            {
+                return Ok(_mapper.Map<IEnumerable<OrderItem>, IEnumerable<OrderItemViewModel>>(order.Items));
+            }
+            else
+            {
+                return BadRequest("No items found for this order");
+            }
+        }
+
+        [HttpGet("id")]
+        public IActionResult Get(int orderId, int id)
+        {
+
+        }
     }
 }
+
