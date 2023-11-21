@@ -17,11 +17,12 @@ namespace DutchTreat.ViewModels
         public int ProductId { get; set; }
 
 
-        //Naming the properties by attaching the Entity object that come from i.e Product
+        //Naming the properties by attaching the Entity object that came from i.e Product
         public string ProductCategory { get; set; }
         public string ProductSize { get; set; }
         public string ProductTitle { get; set; }
         public string ProductArtist { get; set; }
+        public string ProductArtId { get; set; }
 
     }
 }
