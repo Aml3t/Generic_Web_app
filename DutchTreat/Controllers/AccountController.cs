@@ -12,5 +12,14 @@ namespace DutchTreat.Controllers
             _logger = logger;
         }
 
+        public IActionResult Login()
+        {
+            if (this.User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "App");
+            }
+            return View();
+        }
+
     }
 }
