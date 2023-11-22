@@ -1,4 +1,4 @@
-﻿@model 
+﻿@model LoginViewModel
 @{
     ViewBag.Title = "Login";
 }
@@ -13,9 +13,19 @@
     <div class="col-md-6 offset-md-3">
         <form>
             <div class="form-group">
-                <label>Username</label>
-                <input />
-                <span></span>
+                <label asp-for="Username">Username</label>
+                <input asp-for="Username" />
+                <span asp-validation-for="Username"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password">Password</label>
+                <input asp-for="Password" type="password"/>
+                <span asp-validation-for="Password"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username">Username</label>
+                <input asp-for="Username" />
+                <span asp-validation-for="Username"></span>
             </div>
         </form>
     </div>
