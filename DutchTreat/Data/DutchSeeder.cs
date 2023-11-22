@@ -32,6 +32,19 @@ namespace DutchTreat.Data
 
             StoreUser user = await _userManager.FindByEmailAsync("test@test.com");
 
+            if (user == null)
+            {
+                user = new StoreUser()
+                {
+                    FirstName = "DemoUser",
+                    LastName = "DemoUser",
+                    Email = "test@test.com",
+                    UserName = "test@test.com"
+                };
+
+                var result = await _userManager.CreateAsync(user, "P@ssw0rd");
+            }
+
             if (!_context.Products.Any())
             {
                 // Need to create sample data
