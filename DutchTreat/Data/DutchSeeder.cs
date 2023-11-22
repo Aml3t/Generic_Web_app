@@ -43,6 +43,11 @@ namespace DutchTreat.Data
                 };
 
                 var result = await _userManager.CreateAsync(user, "P@ssw0rd");
+                if (result != IdentityResult.Success)
+                {
+                    throw new InvalidOperationException("Could not create new user is seeder");
+                }
+
             }
 
             if (!_context.Products.Any())
@@ -54,11 +59,12 @@ namespace DutchTreat.Data
 
                 _context.Products.AddRange(products);
 
-                var order = new Order()
+                var order = _context.Orders.Where(o => o.Id == 1).FirstOrDefault();
+
+                if (order != null)
                 {
-                    OrderDate = DateTime.Today,
-                    OrderNumber = "10000",
-                    Items = new List<OrderItem>()
+                    order.User = user;
+                    order.Items = new List<OrderItem>()
                     {
                         new OrderItem()
                         {
@@ -66,13 +72,10 @@ namespace DutchTreat.Data
                             Quantity = 5,
                             UnitPrice = products.First().Price
                         }
-                    }
-                };
-
-                _context.Add(order);
+                    };
+                }
 
                 _context.SaveChanges();
-
             }
         }
     }
