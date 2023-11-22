@@ -1,11 +1,13 @@
 ﻿using DutchTreat.Data.Entities;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace DutchTreat.Data
 {
@@ -13,16 +15,22 @@ namespace DutchTreat.Data
     {
         private readonly DutchContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly UserManager<StoreUser> _userManager;
 
-        public DutchSeeder(DutchContext context, IWebHostEnvironment env)
+        public DutchSeeder(DutchContext context,
+            IWebHostEnvironment env,
+            UserManager<StoreUser> userManager)
         {
             _context = context;
             _env = env;
+            _userManager = userManager;
         }
 
-        public void Seed()
+        public async Task SeedAsync()
         {
             _context.Database.EnsureCreated(); // Ensures that the database exists.
+
+            StoreUser user = await _userManager.FindByEmailAsync("test@test.com");
 
             if (!_context.Products.Any())
             {

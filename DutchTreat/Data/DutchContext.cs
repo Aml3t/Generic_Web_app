@@ -5,7 +5,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace DutchTreat.Data
 {
-    public class DutchContext : IdentityDbContext
+    public class DutchContext : IdentityDbContext<StoreUser>
     {
         private readonly IConfiguration _config;
 
