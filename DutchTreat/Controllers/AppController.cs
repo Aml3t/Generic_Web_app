@@ -25,6 +25,7 @@ namespace DutchTreat.Controllers
             return View();
         }
 
+        //[Route("/App/Contact")] //Redirects to /App/Contact/ instead of /contact
         [HttpGet("contact")]
         public IActionResult Contact()
         {
