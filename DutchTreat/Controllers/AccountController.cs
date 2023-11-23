@@ -57,5 +57,11 @@ namespace DutchTreat.Controllers
 
             return View();
         }
+
+        [HttpGet]
+        public IActionResult LogOut()
+        {
+
+        }
     }
 }
