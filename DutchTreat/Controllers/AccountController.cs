@@ -48,14 +48,14 @@ namespace DutchTreat.Controllers
                     }
                     else
                     {
-                        RedirectToAction("Shop", "App");
+                        return RedirectToAction("Shop", "App");
                     }
                 }
-
-
             }
-            return View();
 
+            ModelState.AddModelError("", "Failed to login");
+
+            return View();
         }
     }
 }
