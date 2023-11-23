@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DutchTreat.Data.Entities;
+using DutchTreat.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DutchTreat.Controllers
@@ -6,10 +9,13 @@ namespace DutchTreat.Controllers
     public class AccountController : Controller
     {
         private readonly ILogger<AccountController> _logger;
+        private readonly SignInManager<StoreUser> _signInManager;
 
-        public AccountController(ILogger<AccountController> logger)
+        public AccountController(ILogger<AccountController> logger,
+            SignInManager<StoreUser> signInManager)
         {
             _logger = logger;
+            _signInManager = signInManager;
         }
 
         public IActionResult Login()
@@ -19,6 +25,12 @@ namespace DutchTreat.Controllers
                 return RedirectToAction("Index", "App");
             }
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+
         }
 
     }
