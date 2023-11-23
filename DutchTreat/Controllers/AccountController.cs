@@ -59,8 +59,11 @@ namespace DutchTreat.Controllers
         }
 
         [HttpGet]
-        public IActionResult LogOut()
+        public async Task<IActionResult> LogOut()
         {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index", "App");
+
 
         }
     }
