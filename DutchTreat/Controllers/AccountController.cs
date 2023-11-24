@@ -105,6 +105,7 @@ namespace DutchTreat.Controllers
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
 
+
                     }
                 }
 

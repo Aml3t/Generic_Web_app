@@ -12,6 +12,8 @@
     }
   },
   "Tokens": {
-    "Key": "jkfhdsf99dsuajfklsd031;"
+    "Key": "aasdfasdfasdfasdfij;fldsk",
+    "Issuer": "localhost",
+    "Audience": "localhost"
   }
 }
