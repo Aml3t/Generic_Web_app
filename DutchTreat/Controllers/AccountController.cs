@@ -1,8 +1,8 @@
-﻿using AutoMapper.Configuration;
-using DutchTreat.Data.Entities;
+﻿using DutchTreat.Data.Entities;
 using DutchTreat.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -90,7 +90,7 @@ namespace DutchTreat.Controllers
                 if (user != null)
                 {
                     var result = await _signInManager.CheckPasswordSignInAsync(user, model.Password, false);
-                    
+
                     if (result.Succeeded)
                     {
                         //Create token
@@ -100,11 +100,19 @@ namespace DutchTreat.Controllers
                             new Claim(JwtRegisteredClaimNames.Sub, user.Email),
                             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                             new Claim(JwtRegisteredClaimNames.UniqueName,user.UserName)
-                            
+
                         };
 
                         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
 
+                        var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+                        var token = new JwtSecurityToken(
+                            _config["Tokens:Issuer"],
+                            _config["Token: Audience"],
+                            claims,
+                            signingCredentials: creds,
+                            expires: DateTime.UtcNow.AddMinutes(20));
 
                     }
                 }
