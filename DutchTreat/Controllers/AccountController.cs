@@ -114,6 +114,14 @@ namespace DutchTreat.Controllers
                             signingCredentials: creds,
                             expires: DateTime.UtcNow.AddMinutes(20));
 
+                        return Created("", new
+                        {
+                            // Returns the token as a sting, and not as a Jwt type
+
+                            token = new JwtSecurityTokenHandler().WriteToken(token),
+                            expiration = token.ValidTo
+                        });
+
                     }
                 }
 
