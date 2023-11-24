@@ -14,15 +14,15 @@ namespace DutchTreat.Data
     public class DutchSeeder
     {
         private readonly DutchContext _context;
-        private readonly IWebHostEnvironment _env;
+        private readonly IWebHostEnvironment _hosting;
         private readonly UserManager<StoreUser> _userManager;
 
         public DutchSeeder(DutchContext context,
-            IWebHostEnvironment env,
+            IWebHostEnvironment hosting,
             UserManager<StoreUser> userManager)
         {
             _context = context;
-            _env = env;
+            _hosting = hosting;
             _userManager = userManager;
         }
 
@@ -53,15 +53,17 @@ namespace DutchTreat.Data
             if (!_context.Products.Any())
             {
                 // Need to create sample data
-                var filePath = Path.Combine(_env.ContentRootPath, "Data/art.json");
-                var json = File.ReadAllText(filePath);
+
+                var file = Path.Combine(_hosting.ContentRootPath, "Data/art.json");
+                var json = File.ReadAllText(file);
                 var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
                 _context.Products.AddRange(products);
 
                 var order = _context.Orders.Where(o => o.Id == 1).FirstOrDefault();
 
-                if (order != null)
+                if (order == null)
                 {
+                    order = new Order();
                     order.User = user;
                     order.Items = new List<OrderItem>()
                     {
@@ -74,8 +76,9 @@ namespace DutchTreat.Data
                     };
                 }
 
-                _context.SaveChanges();
+                //_context.SaveChanges();
             }
         }
     }
 }
+
