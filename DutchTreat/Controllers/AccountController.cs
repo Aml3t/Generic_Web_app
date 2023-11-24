@@ -66,5 +66,11 @@ namespace DutchTreat.Controllers
 
 
         }
+
+        [HttpPost]
+        public IActionResult CreateToker()
+        {
+
+        }
     }
 }
