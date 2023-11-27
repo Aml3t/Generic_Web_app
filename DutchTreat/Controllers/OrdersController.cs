@@ -85,6 +85,11 @@ namespace DutchTreat.Controllers
                         newOrder.OrderDate = DateTime.Now;
                     }
 
+
+                    var currentUser = User.Identity.Name.ToString();
+
+                    newOrder.User = currentUser;
+
                     _repository.AddEntity(newOrder);
 
                     if (_repository.SaveAll())
