@@ -20,17 +20,14 @@ namespace DutchTreat.Controllers
         private readonly IDutchRepository _repository;
         private readonly ILogger<OrderItemsController> _logger;
         private readonly IMapper _mapper;
-        private readonly UserManager<StoreUser> _userManager;
 
         public OrderItemsController(IDutchRepository repository,
             ILogger<OrderItemsController> logger,
-            IMapper mapper,
-            UserManager<StoreUser> userManager)
+            IMapper mapper)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
-            _userManager = userManager;
         }
 
         [HttpGet]
