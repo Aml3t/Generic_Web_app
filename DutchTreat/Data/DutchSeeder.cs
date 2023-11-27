@@ -61,9 +61,9 @@ namespace DutchTreat.Data
 
                 var order = _context.Orders.Where(o => o.Id == 1).FirstOrDefault();
 
-                if (order == null)
+                if (order != null)
                 {
-                    order = new Order();
+                    //order = new Order();
                     order.User = user;
                     order.Items = new List<OrderItem>()
                     {
@@ -76,7 +76,7 @@ namespace DutchTreat.Data
                     };
                 }
 
-                //_context.SaveChanges();
+                _context.SaveChanges();
             }
         }
     }

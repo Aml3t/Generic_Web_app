@@ -10,8 +10,8 @@ namespace DutchTreat.Migrations
             migrationBuilder.AlterColumn<string>(
                 name: "Title",
                 table: "Products",
-                type: "nvarchar(50)",
-                maxLength: 50,
+                type: "nvarchar(max)",
+                maxLength: 500,
                 nullable: true,
                 oldClrType: typeof(string),
                 oldType: "nvarchar(max)",

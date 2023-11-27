@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace DutchTreat.Controllers
 {
@@ -77,7 +78,7 @@ namespace DutchTreat.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]OrderViewModel model)
+        public async Task<IActionResult> Post([FromBody]OrderViewModel model)
         {
             try
             {
@@ -91,7 +92,7 @@ namespace DutchTreat.Controllers
                     }
 
 
-                    var currentUser = _userManager.FindByNameAsync(User.Identity.Name);
+                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
                     newOrder.User = currentUser;
 

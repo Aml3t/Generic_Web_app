@@ -54,7 +54,7 @@ namespace DutchTreat
 
             builder.SetBasePath(Directory.GetCurrentDirectory())
                    .AddJsonFile("config.json")
-                   .AddEnvironmentVariables();
+                   .AddEnvironmentVariables(); ///
         }
     }
 }
