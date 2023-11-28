@@ -1,12 +1,10 @@
 class shopper {
 
-    firstName = "";
-    LastName = "";
+    constructor(private firstName: string,private lastName: string) {
 
-    constructor(first, last) {
+    }
 
-        this.firstName = first;
-        this.LastName = last;
-
+    showName() {
+        alert(`${this.firstName} ${this.lastName}`);
     }
 }
