@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -57,13 +56,21 @@ namespace DutchTreat.Data
                 var file = Path.Combine(_hosting.ContentRootPath, "Data/art.json");
                 var json = File.ReadAllText(file);
                 var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
+
+                int maxLength = 50;
+
+                foreach (var product in products)
+                {
+                    product.Title = product.Title?.Substring(0, Math.Min(product.Title?.Length ?? 0, maxLength));
+                }
+
                 _context.Products.AddRange(products);
 
                 var order = _context.Orders.Where(o => o.Id == 1).FirstOrDefault();
 
-                if (order != null)
+
+                if (order == null)
                 {
-                    //order = new Order();
                     order.User = user;
                     order.Items = new List<OrderItem>()
                     {
