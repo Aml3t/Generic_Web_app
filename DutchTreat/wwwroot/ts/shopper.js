@@ -1,11 +1,11 @@
-var shopper = /** @class */ (function () {
-    function shopper(firstName, lastName) {
+var Shopper = /** @class */ (function () {
+    function Shopper(firstName, lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    shopper.prototype.showName = function () {
+    Shopper.prototype.showName = function () {
         alert("".concat(this.firstName, " ").concat(this.lastName));
     };
-    return shopper;
+    return Shopper;
 }());
 //# sourceMappingURL=shopper.js.map
