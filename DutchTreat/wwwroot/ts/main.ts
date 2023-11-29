@@ -1,1 +1,1 @@
-const shopper = new Shopper("Test", "Test");
+const shopper = new Shopper("Test", "Test1");
