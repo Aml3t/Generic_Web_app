@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'the-shop',
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   template: `

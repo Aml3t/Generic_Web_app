@@ -15771,7 +15771,7 @@ var AppComponent = /* @__PURE__ */ (() => {
   };
   _AppComponent.\u0275cmp = /* @__PURE__ */ \u0275\u0275defineComponent({
     type: _AppComponent,
-    selectors: [["app-root"]],
+    selectors: [["the-shop"]],
     standalone: true,
     features: [\u0275\u0275StandaloneFeature],
     decls: 3,
