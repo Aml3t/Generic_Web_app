@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<Product>
 @section Scripts{
+    <script src="~/client/browser/polyfills.js"></script>
+    <script src="~/client/browser/main.js" asp-append-version="true"></script>
+}
+@section head{
+    <link href="~/client/browser/styles.css" rel="stylesheet" />
 }
 
 <the-shop></the-shop>
