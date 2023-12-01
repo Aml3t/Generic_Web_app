@@ -5,14 +5,10 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'the-shop',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet></router-outlet>
-  `,
+    imports: [CommonModule, RouterOutlet],
+    templateUrl:"app.component.html",
   styles: [],
 })
 export class AppComponent {
-  title = 'client';
+  title = 'Dutch Treat Shop';
 }

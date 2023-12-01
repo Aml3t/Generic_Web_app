@@ -1,13 +1,16 @@
 ﻿@model IEnumerable<Product>
-@section Scripts{
+@section Scripts {
+
     <script src="~/client/browser/polyfills.js"></script>
     <script src="~/client/browser/main.js" asp-append-version="true"></script>
 }
-@section head{
+@section head {
     <link href="~/client/browser/styles.css" rel="stylesheet" />
 }
 
 <the-shop></the-shop>
+
+
 @* <h1>Shop</h1>
 <p>Count: @Model.Count()</p>
 

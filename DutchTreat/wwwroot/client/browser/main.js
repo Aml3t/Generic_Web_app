@@ -15763,7 +15763,7 @@ var appConfig = {
 var AppComponent = /* @__PURE__ */ (() => {
   const _AppComponent = class _AppComponent {
     constructor() {
-      this.title = "client";
+      this.title = "Dutch Treat Shop";
     }
   };
   _AppComponent.\u0275fac = function AppComponent_Factory(t) {
