@@ -54,7 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class AppComponent {
     constructor() {
-        this.title = 'Shop';
+        this.title = 'Dutch Treat Shop';
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
