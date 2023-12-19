@@ -6,7 +6,10 @@ import { Store } from "../services/store.service";
     templateUrl: "productListView.component.html"
 })
 export default class ProductListView {
-    constructor(private store: Store) {
 
+    public products = [];
+
+    constructor(private store: Store) {
+        this.products = store.products;
     }
 }
