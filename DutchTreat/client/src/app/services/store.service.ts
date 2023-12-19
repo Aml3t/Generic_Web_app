@@ -1,3 +1,7 @@
+import { Injectable } from "@angular/core";
+
+@Injectable()
+
 export class Store {
     public products = [{
         title: "Van Gogh Mug",
