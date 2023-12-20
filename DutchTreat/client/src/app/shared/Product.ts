@@ -12,4 +12,4 @@ export class Product {
     artistBirthDate: string
     artistDeathDate: string
     artistNationality: string
-} []
+}
