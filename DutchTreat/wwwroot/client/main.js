@@ -51,20 +51,16 @@ const environment = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 class Store {
-    constructor() {
-        this.products = [{
-                title: "Van Gogh Mug",
-                price: "19.99"
-            },
-            {
-                title: "Van Gosh Poster",
-                price: "29.99"
-            }];
+    constructor(http) {
+        this.http = http;
+        this.products = [];
     }
 }
-Store.ɵfac = function Store_Factory(t) { return new (t || Store)(); };
+Store.ɵfac = function Store_Factory(t) { return new (t || Store)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };
 Store.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({ token: Store, factory: Store.ɵfac });
 
 
