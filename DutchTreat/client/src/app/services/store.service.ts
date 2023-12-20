@@ -13,7 +13,7 @@ export class Store {
     public products = [];
 
     loadProducts() {
-        return this.http.get("/api/products")
+        return this.http.get<[]>("/api/products")
             .pipe(map(data => {
                 this.products = data;
                 return;
