@@ -7,12 +7,12 @@ import { Store } from "../services/store.service";
 })
 export default class ProductListView implements OnInit {
 
-    public products = [];
 
-    constructor(private store: Store) {
-        this.products = store.products;
+    constructor(public store: Store) {
+
     }
     ngOnInit(): void {
-        this.store.loadProducts();
+        this.store.loadProducts()
+            .subscribe();  // <- Kicks Off the operation
     }
 }
