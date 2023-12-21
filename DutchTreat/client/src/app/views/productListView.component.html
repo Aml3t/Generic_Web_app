@@ -1,12 +1,12 @@
 ﻿<div class="row">
     <div *ngFor="let p of store.products" class="col-md-3">
         <div class="border bg-light rounded p-1">
-            <img src="~/img/@(p.ArtId).jpg" class="img-fluid" alt="@p.Title" />
+            <img src="/img/{{ p.artId }}.jpg" class="img-fluid" alt="{{ p.title }}" />
             <h3>{{ p.category }} - {{ p.size }}</h3>
             <ul>
                 <li>Price: $ {{ p.price }}</li>
                 <li>Artist: {{ p.artist }}</li>
-                <li>Title: {{ p.Title }}</li>
+                <li>Title: {{ p.title }}</li>
                 <!--@if (!string.IsNullOrWhiteSpace(p.ArtDescription))
                 {-->
                 <li>Description: {{ p.artDescription }}</li>
