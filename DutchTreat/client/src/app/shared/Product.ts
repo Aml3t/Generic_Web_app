@@ -9,7 +9,7 @@ export class Product {
     artDating: string
     artId: string
     artist: string
-    artistBirthDate: string
-    artistDeathDate: string
+    artistBirthDate: Date
+    artistDeathDate: Date
     artistNationality: string
 }
