@@ -187,7 +187,9 @@ class ProductListView {
     }
     ngOnInit() {
         this.store.loadProducts()
-            .subscribe(); // <- Kicks Off the operation
+            .subscribe(() => {
+            // do something
+        }); // <- Kicks Off the operation
     }
 }
 ProductListView.ɵfac = function ProductListView_Factory(t) { return new (t || ProductListView)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__["Store"])); };
