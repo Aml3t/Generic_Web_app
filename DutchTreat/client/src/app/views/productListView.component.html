@@ -1,15 +1,15 @@
 ﻿<div class="row">
-    <div *ngFor="let p of store.products" class="col-md-3">
+    <div *ngFor="let p of store.products" class="col-md-4">
         <div class="border bg-light rounded p-1">
             <img src="/img/{{ p.artId }}.jpg" class="img-fluid product-image" alt="{{ p.title }}" />
-            <h3>{{ p.category }} - {{ p.size }}</h3>
+            <h5>{{ p.category }} - {{ p.size }}</h5>
             <ul class="products-props">
-                <li>Price: $ {{ p.price }}</li>
+                <li>Price: {{ p.price | currency:"EUR" }}</li>
                 <li>Artist: {{ p.artist }}</li>
                 <li>Title: {{ p.title }}</li>
                 <!--@if (!string.IsNullOrWhiteSpace(p.ArtDescription))
                 {-->
-                <li>Description: {{ p.artDescription }}</li>
+                <li>{{ p.artDescription }}</li>
                 <!--}-->
             </ul>
             <button id="buyButton" class="btn btn-success" style="display: block; margin: auto;">Buy</button>
