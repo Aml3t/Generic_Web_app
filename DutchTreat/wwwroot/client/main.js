@@ -51,8 +51,10 @@ const environment = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Store", function() { return Store; });
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs/operators */ "kU1M");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+/* harmony import */ var _shared_Order__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/Order */ "nWtB");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "tk/3");
+
 
 
 
@@ -60,6 +62,7 @@ class Store {
     constructor(http) {
         this.http = http;
         this.products = [];
+        this.order = new _shared_Order__WEBPACK_IMPORTED_MODULE_1__["Order"]();
     }
     loadProducts() {
         return this.http.get("/api/products")
@@ -69,8 +72,8 @@ class Store {
         }));
     }
 }
-Store.ɵfac = function Store_Factory(t) { return new (t || Store)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"])); };
-Store.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({ token: Store, factory: Store.ɵfac });
+Store.ɵfac = function Store_Factory(t) { return new (t || Store)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
+Store.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: Store, factory: Store.ɵfac });
 
 
 /***/ }),
@@ -155,6 +158,36 @@ AppModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_6__["ɵɵdefineInjector
         _views_productListView_component__WEBPACK_IMPORTED_MODULE_3__["default"],
         _views_cartView_component__WEBPACK_IMPORTED_MODULE_5__["CartView"]], imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClientModule"]] }); })();
+
+
+/***/ }),
+
+/***/ "nWtB":
+/*!*********************************!*\
+  !*** ./src/app/shared/Order.ts ***!
+  \*********************************/
+/*! exports provided: OrderItem, Order */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OrderItem", function() { return OrderItem; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Order", function() { return Order; });
+class OrderItem {
+}
+class Order {
+    constructor() {
+        this.orderDate = new Date();
+        this.items = [];
+        //get subtotal(): number {
+        //    const result = this.items.reduce(
+        //        (tot, val) => {
+        //            return tot + (val.unitPrice * val.quantity);
+        //        }, 0);
+        //    return result;
+        //}
+    }
+}
 
 
 /***/ }),
