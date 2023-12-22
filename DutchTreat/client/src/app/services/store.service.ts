@@ -38,8 +38,6 @@ export class Store {
         newItem.quantity = 1;
 
 
-
-
         this.order.items.push(newItem);
     }
 
