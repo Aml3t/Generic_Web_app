@@ -71,6 +71,18 @@ class Store {
             return;
         }));
     }
+    addToOrder(product) {
+        const newItem = new _shared_Order__WEBPACK_IMPORTED_MODULE_1__["OrderItem"]();
+        newItem.id = product.id;
+        newItem.productTitle = product.title;
+        newItem.productArtId = product.artId;
+        newItem.productArtist = product.artist;
+        newItem.productCategory = product.category;
+        newItem.productSize = product.size;
+        newItem.unitPrice = product.price;
+        newItem.quantity = 1;
+        this.order.items.push(newItem);
+    }
 }
 Store.ɵfac = function Store_Factory(t) { return new (t || Store)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };
 Store.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵdefineInjectable"]({ token: Store, factory: Store.ɵfac });
