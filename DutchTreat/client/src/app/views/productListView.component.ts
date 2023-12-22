@@ -8,7 +8,6 @@ import { Store } from "../services/store.service";
 })
 export default class ProductListView implements OnInit {
 
-
     constructor(public store: Store) {
 
     }
