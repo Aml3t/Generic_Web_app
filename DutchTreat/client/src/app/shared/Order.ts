@@ -16,13 +16,13 @@ export class Order {
     orderNumber: string;
     items: OrderItem[] = [];
 
-    get subtotal(): number {
+    //get subtotal(): number {
 
-        const result = this.items.reduce(
-            (tot, val) => {
-                return tot + (val.unitPrice * val.quantity);
-            }, 0);
+    //    const result = this.items.reduce(
+    //        (tot, val) => {
+    //            return tot + (val.unitPrice * val.quantity);
+    //        }, 0);
 
-        return result;
-    }
+    //    return result;
+    //}
 }
