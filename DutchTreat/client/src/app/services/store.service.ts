@@ -29,12 +29,11 @@ export class Store {
 
         let item: OrderItem;
 
-        item = this.order.items.find(o => o.productArtId === product.artId);
+        item = this.order.items.find(o => o.productId === product.id);
 
         if (item) {
             item.quantity++;
-        }
-        else {
+        } else {
             item = new OrderItem();
             item.productId = product.id;
             item.productTitle = product.title;
@@ -46,7 +45,6 @@ export class Store {
             item.quantity = 1;
 
             this.order.items.push(item);
-
         }
     }
 

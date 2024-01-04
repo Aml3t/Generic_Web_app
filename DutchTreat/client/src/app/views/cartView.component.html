@@ -13,13 +13,13 @@
     <tbody>
         <tr *ngFor="let item of store.order.items">
             <td>
-                <img scr="/img/{{item.productArtId}}.jpg" alt="{{ item.productArtist }}"
+                <img src="/img/{{item.productArtId}}.jpg" alt="{{ item.productArtist }}"
                      class="img-fluid product-thumb" />
             </td>
             <td>{{ item.productCategory}}</td>
             <td>{{ item.quantity}}</td>
-            <td>{{ item.unitPrice}}</td>
-            <td>{{ item.unitPrice * item.quantity}}</td>
+            <td>{{ item.unitPrice | currency:"EUR"}}</td>
+            <td>{{ item.unitPrice * item.quantity | currency:"EUR"}}</td>
         </tr>
     </tbody>
 </table>
