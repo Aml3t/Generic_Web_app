@@ -72,16 +72,23 @@ class Store {
         }));
     }
     addToOrder(product) {
-        const item = new _shared_Order__WEBPACK_IMPORTED_MODULE_1__["OrderItem"]();
-        item.productId = product.id;
-        item.productTitle = product.title;
-        item.productArtId = product.artId;
-        item.productArtist = product.artist;
-        item.productCategory = product.category;
-        item.productSize = product.size;
-        item.unitPrice = product.price;
-        item.quantity = 1;
-        this.order.items.push(item);
+        let item;
+        item = this.order.items.find(o => o.productArtId === product.artId);
+        if (item) {
+            item.quantity++;
+        }
+        else {
+            item = new _shared_Order__WEBPACK_IMPORTED_MODULE_1__["OrderItem"]();
+            item.productId = product.id;
+            item.productTitle = product.title;
+            item.productArtId = product.artId;
+            item.productArtist = product.artist;
+            item.productCategory = product.category;
+            item.productSize = product.size;
+            item.unitPrice = product.price;
+            item.quantity = 1;
+            this.order.items.push(item);
+        }
     }
 }
 Store.ɵfac = function Store_Factory(t) { return new (t || Store)(_angular_core__WEBPACK_IMPORTED_MODULE_2__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"])); };

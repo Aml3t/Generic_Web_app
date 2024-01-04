@@ -27,19 +27,27 @@ export class Store {
 
     addToOrder(product: Product) {
 
+        let item: OrderItem;
 
-        const item = new OrderItem();
-        item.productId = product.id;
-        item.productTitle = product.title;
-        item.productArtId = product.artId;
-        item.productArtist = product.artist;
-        item.productCategory = product.category;
-        item.productSize = product.size;
-        item.unitPrice = product.price;
-        item.quantity = 1;
+        item = this.order.items.find(o => o.productArtId === product.artId);
 
+        if (item) {
+            item.quantity++;
+        }
+        else {
+            item = new OrderItem();
+            item.productId = product.id;
+            item.productTitle = product.title;
+            item.productArtId = product.artId;
+            item.productArtist = product.artist;
+            item.productCategory = product.category;
+            item.productSize = product.size;
+            item.unitPrice = product.price;
+            item.quantity = 1;
 
-        this.order.items.push(item);
+            this.order.items.push(item);
+
+        }
     }
 
 }
