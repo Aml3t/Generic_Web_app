@@ -1,6 +1,6 @@
 ﻿<h3>Cart</h3>
 <div>Count: {{ store.order.items.length }}</div>
-<table>
+<table class="table table-cond table-striped">
     <thead>
         <tr>
             <th></th>
@@ -12,7 +12,12 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of store.order.items">
-            <td></td>
+            <td>
+                <img scr="/img/{{ item.productArtId }}.jpg" 
+                     alt="{{ item.productArtisst }}"
+                     class="img-fluid product-thumb"
+                     />
+            </td>
             <td>{{ item.productCategory}}</td>
             <td>{{ item.quantity}}</td>
             <td>{{ item.unitPrice}}</td>
