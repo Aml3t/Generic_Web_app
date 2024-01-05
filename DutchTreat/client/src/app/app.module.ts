@@ -6,16 +6,22 @@ import { AppComponent } from './app.component';
 import ProductListView from './views/productListView.component';
 import { Store } from './services/store.service';
 import { CartView } from './views/cartView.component';
+import router from './router';
+import { ShopPage } from './pages/shopPage.component';
+import { CheckoutPage } from './pages/checkout.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ProductListView,
-        CartView
+        CartView,
+        ShopPage,
+        CheckoutPage
     ],
     imports: [
         BrowserModule,
-        HttpClientModule
+        HttpClientModule,
+        router
     ],
     providers: [
         Store,
