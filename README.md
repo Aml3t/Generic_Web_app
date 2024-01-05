@@ -2,4 +2,4 @@
 
 This is another generic Web application to implement ASP.NET Core, MVC, EF Core, Bootstrap, and Angular.
 
-In case some happens, I will try to edit this README.
+In case something happens, I will try to edit this README.
