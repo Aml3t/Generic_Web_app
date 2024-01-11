@@ -1,6 +1,7 @@
 import { RouterModule } from "@angular/router";
 import { CheckoutPage } from "../pages/checkout.component";
 import { ShopPage } from "../pages/shopPage.component";
+import { LoginPage } from "../pages/loginPage.component";
 
 
 
