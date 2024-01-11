@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from "@angular/router";
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from "@angular/router";
 import { Observable } from "rxjs";
 import { Store } from "./store.service";
 
@@ -7,7 +7,7 @@ import { Store } from "./store.service";
 export class AuthActivator implements CanActivate {
 
 
-    constructor(private store: Store) {
+    constructor(private store: Store, private router: Router) {
 
     }
 
@@ -16,6 +16,7 @@ export class AuthActivator implements CanActivate {
         : boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
 
         if (this.store.loginRequired) {
+            this.router.navigate(["login"]);
             return false;
         }
         else {

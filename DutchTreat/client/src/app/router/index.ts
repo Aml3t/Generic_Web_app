@@ -6,7 +6,8 @@ import { ShopPage } from "../pages/shopPage.component";
 
 const routes = [
     { path: "", component: ShopPage },
-    { path: "checkout", component: CheckoutPage }
+    { path: "checkout", component: CheckoutPage },
+    { path: "login", component: LoginPage}
 
 ];
 
