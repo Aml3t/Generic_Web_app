@@ -9,7 +9,8 @@ import { AuthActivator } from "../services/authActivator.service";
 const routes = [
     { path: "", component: ShopPage },
     { path: "checkout", component: CheckoutPage, canActivate: [AuthActivator] },
-    { path: "login", component: LoginPage}
+    { path: "login", component: LoginPage },
+    { path: "**", redirectTo: "/" }
 
 ];
 

@@ -10,6 +10,7 @@ import router from './router';
 import { ShopPage } from './pages/shopPage.component';
 import { CheckoutPage } from './pages/checkout.component';
 import { LoginPage } from './pages/loginPage.component';
+import { AuthActivator } from './services/authActivator.service';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { LoginPage } from './pages/loginPage.component';
     ],
     providers: [
         Store,
+        AuthActivator
     ],
     bootstrap: [AppComponent]
 })
