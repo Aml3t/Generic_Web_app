@@ -14,13 +14,13 @@ export class CheckoutPage {
     constructor(public store: Store, private router: Router) {
     }
 
-    //onCheckout() {
-    //    this.errorMessage = "";
-    //    this.store.checkout()
-    //        .subscribe(() => {
-    //            this.router.navigate(["/"]);
-    //        }, err => {
-    //            this.errorMessage = `Failed to checkout: ${err}`;
-    //        })
-    //}
+    onCheckout() {
+        this.errorMessage = "";
+        this.store.checkout()
+            .subscribe(() => {
+                this.router.navigate(["/"]);
+            }, err => {
+                this.errorMessage = `Failed to checkout: ${err}`;
+            })
+    }
 }

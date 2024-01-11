@@ -10,8 +10,7 @@ const routes = [
 
 ];
 
-const router = RouterModule.forRoot(routes,
-    {
+const router = RouterModule.forRoot(routes,{
         useHash: false
     });
 
