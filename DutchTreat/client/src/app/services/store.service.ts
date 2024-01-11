@@ -17,12 +17,8 @@ export class Store {
     public token = "";
     public expiration = new Date();
 
-    loadProducts(): Observable<void> {
-        return this.http.get<[]>("/api/products")
-            .pipe(map(data => {
-                this.products = data;
-                return;
-            }));
+    get loginRequired(): boolean {
+        return this.token.length === 0 || this.expiration < new Date();
     }
 
 
@@ -34,6 +30,14 @@ export class Store {
         })
             .pipe(map(() => {
                 this.order = new Order();
+            }));
+    }
+
+    loadProducts(): Observable<void> {
+        return this.http.get<[]>("/api/products")
+            .pipe(map(data => {
+                this.products = data;
+                return;
             }));
     }
 
