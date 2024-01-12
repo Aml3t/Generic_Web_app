@@ -10,4 +10,13 @@ import { Store } from "../services/store.service";
 export class LoginPage {
     constructor(private store: Store, private router: Router) { } 
 
+    public creds = {
+        username: "",
+        password: ""
+    }
+
+    onLogin() {
+        alert("Logging in...");
+    }
+
 }

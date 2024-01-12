@@ -206,6 +206,13 @@ class LoginPage {
     constructor(store, router) {
         this.store = store;
         this.router = router;
+        this.creds = {
+            username: "",
+            password: ""
+        };
+    }
+    onLogin() {
+        alert("Logging in...");
     }
 }
 LoginPage.ɵfac = function LoginPage_Factory(t) { return new (t || LoginPage)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_store_service__WEBPACK_IMPORTED_MODULE_1__["Store"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"])); };
