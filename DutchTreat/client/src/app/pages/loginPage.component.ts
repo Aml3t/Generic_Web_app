@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { Store } from "../services/store.service";
 
 @Component({
     selector: "login-page",
@@ -6,5 +8,6 @@ import { Component } from "@angular/core";
 })
 
 export class LoginPage {
+    constructor(private store: Store, private router: Router) { } 
 
 }
