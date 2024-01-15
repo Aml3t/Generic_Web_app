@@ -104,6 +104,13 @@ class Store {
         this.token = "";
         this.expiration = new Date();
     }
+    loadProducts() {
+        return this.http.get("/api/products")
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(data => {
+            this.products = data;
+            return;
+        }));
+    }
     get loginRequired() {
         return this.token.length === 0 || this.expiration > new Date();
     }
@@ -121,13 +128,6 @@ class Store {
         })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(() => {
             this.order = new _shared_Order__WEBPACK_IMPORTED_MODULE_2__["Order"]();
-        }));
-    }
-    loadProducts() {
-        return this.http.get("/api/products")
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(data => {
-            this.products = data;
-            return;
         }));
     }
     addToOrder(product) {
