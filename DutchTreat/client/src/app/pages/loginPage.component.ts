@@ -7,9 +7,8 @@ import { LoginRequest } from "../shared/LoginResults";
     selector: "login-page",
     templateUrl: "loginPage.component.html"
 })
-
 export class LoginPage {
-    constructor(private store: Store, private router: Router) { } 
+    constructor(private store: Store, private router: Router) { }
 
     public creds: LoginRequest = {
         username: "",
@@ -21,16 +20,15 @@ export class LoginPage {
     onLogin() {
         this.store.login(this.creds)
             .subscribe(() => {
-                //Successfully logged in
+                // Successfully logged in
                 if (this.store.order.items.length > 0) {
                     this.router.navigate(["checkout"]);
                 } else {
                     this.router.navigate([""]);
                 }
             }, error => {
-                console.log(error)
+                console.log(error);
                 this.errorMessage = "Failed to login";
             });
     }
-
 }

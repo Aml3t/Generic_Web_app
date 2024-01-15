@@ -245,7 +245,7 @@ class LoginPage {
     onLogin() {
         this.store.login(this.creds)
             .subscribe(() => {
-            //Successfully logged in
+            // Successfully logged in
             if (this.store.order.items.length > 0) {
                 this.router.navigate(["checkout"]);
             }
