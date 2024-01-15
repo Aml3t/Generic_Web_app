@@ -594,6 +594,7 @@ class OrderItem {
 class Order {
     constructor() {
         this.orderDate = new Date();
+        this.orderNumber = Math.random().toString(36).substr(2, 5);
         this.items = [];
     }
     get subtotal() {
