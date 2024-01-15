@@ -2,7 +2,6 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "../services/store.service";
 import { LoginRequest } from "../shared/LoginResults";
-import { error } from "console";
 
 @Component({
     selector: "login-page",
@@ -17,6 +16,8 @@ export class LoginPage {
         password: ""
     }
 
+    public errorMessage = "";
+
     onLogin() {
         this.store.login(this.creds)
             .subscribe(() => {
@@ -28,6 +29,7 @@ export class LoginPage {
                 }
             }, error => {
                 console.log(error)
+                this.errorMessage = "Failed to login";
             });
     }
 
