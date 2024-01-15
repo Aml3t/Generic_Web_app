@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "../services/store.service";
 import { LoginRequest } from "../shared/LoginResults";
+import { error } from "console";
 
 @Component({
     selector: "login-page",
@@ -18,7 +19,11 @@ export class LoginPage {
 
     onLogin() {
         this.store.login(this.creds)
-            .subscribe
+            .subscribe(() => {
+                //Successfully logged in
+            }, error => {
+                console.log(error)
+            });
     }
 
 }
