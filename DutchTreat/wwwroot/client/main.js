@@ -105,9 +105,14 @@ class Store {
         this.expiration = new Date();
     }
     get loginRequired() {
-        return this.token.length === 0 || this.expiration < new Date();
+        return this.token.length === 0 || this.expiration > new Date();
     }
     login(creds) {
+        return this.http.post("/account/createtoken", creds)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["map"])(data => {
+            this.token = data.token;
+            this.expiration = data.expiration;
+        }));
     }
     checkout() {
         const headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_0__["HttpHeaders"]().set("Authorization", `Bearer ${this.token}`);
