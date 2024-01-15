@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Order, OrderItem } from "../shared/Order";
 import { Product } from "../shared/Product";
+import { LoginRequest } from "../shared/LoginResults";
 
 @Injectable()
 export class Store {
@@ -19,6 +20,10 @@ export class Store {
 
     get loginRequired(): boolean {
         return this.token.length === 0 || this.expiration < new Date();
+    }
+
+    login(creds: LoginRequest) {
+
     }
 
 

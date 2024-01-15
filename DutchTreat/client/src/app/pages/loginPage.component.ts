@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { Store } from "../services/store.service";
+import { LoginRequest } from "../shared/LoginResults";
 
 @Component({
     selector: "login-page",
@@ -10,7 +11,7 @@ import { Store } from "../services/store.service";
 export class LoginPage {
     constructor(private store: Store, private router: Router) { } 
 
-    public creds = {
+    public creds: LoginRequest = {
         username: "",
         password: ""
     }
