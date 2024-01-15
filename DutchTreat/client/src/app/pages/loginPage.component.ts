@@ -21,6 +21,11 @@ export class LoginPage {
         this.store.login(this.creds)
             .subscribe(() => {
                 //Successfully logged in
+                if (this.store.order.items.length > 0) {
+                    this.router.navigate(["checkout"]);
+                } else {
+                    this.router.navigate([""]);
+                }
             }, error => {
                 console.log(error)
             });
