@@ -17,7 +17,8 @@ export class LoginPage {
     }
 
     onLogin() {
-        alert("Logging in...");
+        this.store.login(this.creds)
+            .subscribe
     }
 
 }
