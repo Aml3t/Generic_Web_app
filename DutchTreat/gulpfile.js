@@ -1,16 +1,21 @@
 var gulp = require("gulp");
-var unglify = require("gulp-unglify");
-var concat = ("gulp-concat");
+var uglify = require("gulp-uglify");
+var concat = require("gulp-concat");
 
-// minify Javascript
-
+// minify JavaScript
 function minify() {
     return gulp.src(["wwwroot/js/**/*.js"])
-        .pipe(unglify())
+        .pipe(uglify())
         .pipe(concat("dutchtreat.min.js"))
-        .pipe(gulp.dest("wwwroot/dist/"))
+        .pipe(gulp.dest("wwwroot/dist/"));
 }
 
 // minify CSS
+function styles() {
+    return gulp.src(["wwwroot/css/**/*.css"])
+        .pipe(uglify())
+        .pipe(concat("dutchtreat.min.css"))
+        .pipe(gulp.dest("wwwroot/dist/"));
+}
 
-export.default = minify();
+exports.default = minify();
