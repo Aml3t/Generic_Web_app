@@ -2,9 +2,17 @@
 <html>
 <head>
     <title>Dutch Treat: @ViewBag.Title</title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/lib/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
+    <environment include="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/lib/fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/dist/dutchtreat.min.css" rel="stylesheet" asp-append-version="true"/>
+
+    </environment>
+
     @RenderSection("head", false)
 </head>
 
