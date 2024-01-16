@@ -18,4 +18,7 @@ function styles() {
         .pipe(gulp.dest("wwwroot/dist/"));
 }
 
-exports.default = minify();
+exports.minify = minify;
+exports.styles = styles;
+
+exports.default = gulp.parallel(minify, styles);
