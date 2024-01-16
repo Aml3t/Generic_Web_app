@@ -30,6 +30,13 @@
     <TypeScriptCompile Include="wwwroot\ts\shopper.ts" />
   </ItemGroup>
 
+	<Target Name="MyPublishScripts" BeforeTargets="BeforePublish">
+		<Exec Command="npm install" />
+		<Exec Command="gulp" />
+		<Exec Command="npm install" WorkingDirectory=".\\client" />
+		<Exec Command="ng build --prod" WorkingDirectory=".\\client" />
+	</Target>
+
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>
